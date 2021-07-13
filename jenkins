@@ -2,18 +2,23 @@ pipeline {
     agent any
 
     stages {
+        stage('Git Checkout'){
+            steps{
+                git credentialsId: 'github','https://github.com/madhu1343/dih
+            }
+        }
         stage('TF Plan') {
        steps {
          
-           sh 'terraform init'
-           sh 'terraform plan -out myplan'
+           sh label:'', script: 'terraform init'
+           sh label:'', script: 'terraform plan -out myplan'
          }
        }
      }
         stage('TF Apply') {
       steps {
         
-          sh terraform apply -input=false myplan'
+          sh label:'', script: 'terraform apply -input=false myplan'
         }
       }
     }
