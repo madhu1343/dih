@@ -2,20 +2,18 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
+        stage('TF Plan') {
+       steps {
+         
+           sh 'terraform init'
+           sh 'terraform plan -out myplan'
+         }
+       }
+     }
+        stage('TF Apply') {
+      steps {
+        
+          sh terraform apply -input=false myplan'
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
+      }
     }
-}
