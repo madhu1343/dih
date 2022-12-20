@@ -11,7 +11,7 @@ provider "azurerm" {
 }
 resource "azurerm_resource_group" "example" {
   name     = "example-resources"
-  location = "West Europe"
+  location = "east us2"
 }
 
 // resource "azurerm_application_insights" "example" {
