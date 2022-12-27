@@ -1,5 +1,5 @@
 provider "azurerm" {
-  # Whitelist version is optional, we /strongly recommend/ using it to pin the version of the Provider being used
+  # Whitelist the version is optional, we /strongly recommend/ using it to pin the version of the Provider being used
   version = "=2.4.0"
 
   subscription_id = "3214f068-4320-4238-a5cc-0a8957a43edc"
